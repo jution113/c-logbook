@@ -14,6 +14,8 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
 
 // libft
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
