@@ -6,7 +6,7 @@
 /*   By: suju <suju@student.42gyeongsan.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:36:27 by suju              #+#    #+#             */
-/*   Updated: 2025/04/21 23:12:44 by suju             ###   ########.fr       */
+/*   Updated: 2025/07/25 15:16:14 by suju             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-int		ft_atoi(const char *nptr);int	ft_print_hex(unsigned long nbr, char format)
-
+int		ft_atoi(const char *nptr);
+int		ft_print_hex(unsigned long nbr, char format);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -53,12 +53,12 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 // ft_printf
-int     ft_printf(const char *str, ...)
-int     ft_print_char(char c);
-int     ft_print_str(char *str);
-int     ft_print_ptr(void *ptr);
-int     ft_print_nbr(long nbr);
-int     ft_print_unsigned_nbr(unsigned int nbr);
-int     ft_print_hex(unsigned long nbr, char format);
+int		ft_printf(const char *str, ...);
+int		ft_print_char(char c);
+int		ft_print_str(char *str);
+int		ft_print_ptr(void *ptr);
+int		ft_print_nbr(long nbr);
+int		ft_print_unsigned_nbr(unsigned int nbr);
+int		ft_print_hex(unsigned long nbr, char format);
 
 #endif
