@@ -6,7 +6,7 @@
 /*   By: suju <suju@student.42gyeongsan.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:00:55 by suju              #+#    #+#             */
-/*   Updated: 2025/08/07 16:00:57 by suju             ###   ########.fr       */
+/*   Updated: 2025/08/10 04:15:26 by suju             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <sys/wait.h>
 # include "../Libft/libft.h"
 
-void	error_exit(const char *msg);
+void	validate_args(int argc);
+void	error_exit(char *msg, int error_code);
 void	free_ptr_arr(char **ptr_arr);
 char	*find_executable_path(char *cmd_name, char **cmd_path_arr);
 char	*find_cmd_path(char *cmd_name, char *envp[]);

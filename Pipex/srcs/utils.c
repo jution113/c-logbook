@@ -10,20 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/pipex.h"
+#include "../includes/pipex.h"
 
-void	error_exit(const char *msg)
+void	validate_args(int argc)
+{
+	if (argc != 5)
+	{
+		ft_putstr_fd("[Error] Expected: ./pipex file1 cmd1 cmd2 file2\n", 2);
+		exit(EXIT_FAILURE);
+	}
+}
+
+void	error_exit(char *msg, int error_code)
 {
 	perror(msg);
-	exit(EXIT_FAILURE);
+	exit(error_code);
 }
 
 void	free_ptr_arr(char **ptr_arr)
 {
-	while (*ptr_arr)
+	int	i;
+
+	i = 0;
+	while (ptr_arr[i])
 	{
-		free(*ptr_arr);
-		ptr_arr++;
+		free(ptr_arr[i]);
+		i++;
 	}
 	free(ptr_arr);
 }
@@ -44,7 +56,7 @@ char	*find_executable_path(char *cmd_name, char **cmd_path_arr)
 		free(tmp);
 		if (!cmd_path)
 			return (NULL);
-		if (access(cmd_path, X_OK) == 0)
+		if (access(cmd_path, F_OK) == 0)
 			return (cmd_path);
 		free(cmd_path);
 		i++;
@@ -59,14 +71,12 @@ char	*find_cmd_path(char *cmd_name, char *envp[])
 	int		i;
 
 	i = 0;
-	while (ft_strnstr(envp[i], "PATH", 4) == NULL)
+	while (envp[i] && !ft_strnstr(envp[i], "PATH", 4))
 		i++;
 	cmd_path_arr = ft_split(envp[i] + 5, ':');
 	if (!cmd_path_arr)
-		error_exit("ft_split");
+		return (NULL);
 	cmd_path = find_executable_path(cmd_name, cmd_path_arr);
 	free_ptr_arr(cmd_path_arr);
-	if (!cmd_path)
-		error_exit("find_executable_path");
 	return (cmd_path);
 }
