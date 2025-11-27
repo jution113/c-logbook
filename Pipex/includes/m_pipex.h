@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: suju <suju@student.42gyeongsan.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/07 16:00:55 by suju              #+#    #+#             */
+/*   Updated: 2025/08/11 00:10:47 by suju             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef M_PIPEX_H
+# define M_PIPEX_H
+# include <unistd.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <sys/wait.h>
+# include  <errno.h>
+# include "../Libft/libft.h"
+
+void	validate_args(int argc);
+void	error_exit(char *msg, int error_code);
+void	handle_cmd_error(char *cmd_name, char **cmd_argv);
+void	free_ptr_arr(char **ptr_arr);
+
+void	handle_file_error(char *file_name, int error_code);
+char	*find_executable_path(char *cmd_name, char **cmd_path_arr);
+char	*find_cmd_path(char *cmd_name, char *envp[]);
+int		is_path_command(char *cmd_name);
+
+#endif
